@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+ <!-- maxActive: nombre maximal de connexions -->
+ <!-- maxIdle: nombre minimal de connexions libres à retenir dans le pool -->
+ <!-- maxWait: temps d'attente maximal pour obtenir une connexion -->
+ <!-- username and password -->
+ <!-- driverClassName: nom du driver JDBC -->
+ <!-- url: url de connexion -->
+ 
+ <!-- Lors de l'accès à une base de données depuis une Servlet, l'établissement de la connexion peut prendre quelques secondes.
+  Ce délai augmente le temps de réponse de notre Servlet.
+La gestion d'un pool de connexions par Tomcat permet de réduire ce temps puisque les connexions à la base
+de données sont déjà établies et gérées par Tomcat qui fournit à la Servlet des objets DataSource. --> 
+ 
+ <Resource name="jdbc/db" auth="Container" type="javax.sql.DataSource"
+ maxActive="100" maxIdle="30" maxWait="10000"
+ username="root" password="root"
+ driverClassName="com.mysql.jdbc.Driver"
+ url="jdbc:mysql://localhost/shah_sahli"/>
+</Context>
